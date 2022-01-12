@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.oxstone.customfieldsetter.controller.MainFxController">
+   <top>
+      <MenuBar styleClass="btn" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuClose" mnemonicParsing="false" onAction="#clickMenuClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#clickMenuAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane prefWidth="200.0" styleClass="btn" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="tabSourceEditEnabler" styleClass="btn" text="Custom Field Activator">
+               <content>
+                  <BorderPane prefWidth="200.0">
+                     <bottom>
+                        <HBox fx:id="hBox" alignment="CENTER" prefHeight="0.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="btnEnabler" visible="false" disable="true" mnemonicParsing="false" onAction="#clickBtnEnabler" styleClass="btn" text="Convert" />
+                           </children>
+<!--                           <padding>-->
+<!--                              <Insets bottom="10.0" top="10.0" />-->
+<!--                           </padding>-->
+                        </HBox>
+                     </bottom>
+                     <top>
+                        <AnchorPane prefHeight="100.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="lblFolderPath" layoutX="24.0" layoutY="23.0" styleClass="lbl" text="TMX File">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtFolderPath" layoutX="116.0" layoutY="24.0" prefHeight="23.0" prefWidth="417.0" />
+                              <Button fx:id="btnSearch" layoutX="539.0" layoutY="24.0" mnemonicParsing="false" onAction="#clickBtnSearch" text="..." />
+                              <Button fx:id="btnDetect" disable="true" layoutX="229.0" layoutY="65.0" mnemonicParsing="false" onAction="#clickBtnDetect" text="Detect Custom Fields" />
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <GridPane fx:id="gridPane" alignment="CENTER" vgap="10.0" BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" halignment="RIGHT" maxWidth="304.0" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" maxWidth="304.0" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" halignment="LEFT" maxWidth="414.0" minWidth="10.0" prefWidth="200.0" />
+                          </columnConstraints>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
